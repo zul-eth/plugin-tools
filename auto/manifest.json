@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Collect Captcha Token",
+  "version": "1.0",
+  "description": "Collect captcha token & submit it to server",
+
+  "permissions": [
+    "storage",
+    "browsingData",
+    "cookies"
+  ],
+
+  "host_permissions": [
+    "https://faucets.alchemy.com/*",
+    "https://serverfaucet.my.id/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://faucets.alchemy.com/faucets*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

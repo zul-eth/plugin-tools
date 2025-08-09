@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Recaptcha Token Auto Collect",
+  "version": "1.3",
+  "description": "Extension untuk mengumpulkan recaptcha token dan mengirim ke API server",
+  "permissions": [
+    "scripting", 
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://faucets.alchemy.com/*",
+    "http://localhost:8080/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://faucets.alchemy.com/faucets/world-chain-sepolia*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    },
+    {
+      "matches": ["https://www.google.com/recaptcha/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+  }
+  ],
+  "action": {
+    "default_title": "Alchemy Token Collector"
+  }
+}
