@@ -3,7 +3,7 @@
 
   let submitCount = 0;
   const MAX_SUBMIT = 25;
-  const TIMEOUT_LIMIT = 30000; // 1 menit
+  const TIMEOUT_LIMIT = 180000; // 1 menit
   let tokenTimeout;
 
   function startTokenTimeout() {
